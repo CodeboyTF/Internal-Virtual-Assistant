@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="static/css/style.css">
+      <title>News, governance, media</title>
+      <script src="https://cdn.tailwindcss.com"></script>
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Muli:wght@900&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="../static/css/style.css">
+  
+      <link rel="icon" type="image/png" href="static/images/favicon-16x16.png">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+      <script src="https://cdn.tailwindcss.com"></script> 
+     </head>
+
+   <body class="bg-white">
+      <!-- Header -->
+      <div class="body bg-gray-200 text-xs py-1 px-4 flex justify-between items-center fixed top-0 left-0 right-0 z-50">
+         <div class="custom-warning">
+            GAMBLING IS PROHIBITED TO MINORS AND MAY CAUSE PATHOLOGICAL ADDICTION - Find out about the
+            <a class="underline" href="#"> odds of win</a>
+         </div>
+         <div class="flex space-x-2">
+            <a class="hover:underline" href="#"><img alt="Icon 1" class="h-6" src="../static/images/h1.svg" /></a>
+            <a class="hover:underline" href="#"><img alt="Icon 2" class="h-6" src="../static/images/h2.svg" /></a>
+            <a class="hover: underline" href="#"><img alt="Icon 3" class="h-6" src="../static/images/h3.svg" /></a>
+            <a class="hover:underline" href="#"><img alt="Icon 4" class="h-6" src="../static/images/h4.svg" /></a>
+         </div>
+      </div>
+     
+      <div class="bg-white shadow-md fixed top-[2rem] left-0 right-0 z-40">
+         <div class="container mx-auto flex justify-between items-center py-2 px-4 ">
+            <div class="flex items-center space-x-4">
+               <a class="hover:underline" href="home.html">
+               <img alt="Sisal logo" class="h-10" src="../static/images/logo-sisal.webp" />
+               </a>
+               <nav class="body flex space-x-4 text-sm font-bold">
+                  <a  href="#">Betting</a>
+                  <a  href="#">Lotteries</a>
+                  <a  href="#">Casino and Poker</a>
+                  <a  href="#">Games</a>
+               </nav>
+            </div>
+            <div class="flex items-center space-x-4 text-sm ">
+               <a class="flex items-center space-x-1 hover:underline" href="#">
+               <i class="far fa-star"></i>
+               <span>Welcome Bonus</span>
+               </a>
+               <a class="flex items-center space-x-1 hover:underline" href="#">
+               <img alt="Loyalty program icon" class="w-6 h-6" loading="lazy" src="../static/images/1.svg" />
+               <span>Loyalty program</span>
+               </a>
+               <a class="border border-green-500 text-green-500 px-3 py-1 rounded-md hover:bg-green-500 hover:text-white" href="#">Log in</a>
+               <a class="bg-yellow-500 text-white px-3 py-1 rounded-md hover:bg-yellow-600" href="{{ url_for('admin_login') }}">Admin</a>
+            </div>
+         </div>
+      </div>
+      <!-- Promotional Section -->
+      <div class="relative">
+        <div class="absolute top-[100px] left-4 bg-[#6495ED] px-4 py-0 rounded-full text-black body font-bold text-sm z-50">
+          Poker Welcome Bonus 
+       </div>
+         <img alt="Promotional Background" class="w-full"  src="../static/images/h4.jpeg" style="height: 500px; object-position: cover;" />
+         <div class="absolute bottom-[-10px] left-1/2 transform -translate-x-1/2 w-[864px] h-[125px] bg-white p-4 shadow-lg rounded-lg">
+            <div class="relative h-full">
+               <div class="absolute top-2 right-2">
+                  <i class="fas fa-info-circle text-gray-500"></i>
+               </div>
+               <div class="flex items-center justify-between h-full">
+                  <div>
+                     <div class="text-2xl body font-bold">Play with us</div>
+                     <div class="body text-gray-700">
+                        Join the promo €40,000 Freeroll: you can win entry to the Sunday Million tournament!
+                     </div>
+                     <div class="flex items-center mt-2">
+                        <i class="fas fa-circle text-green-500 mr-2"></i>
+                        <span>Poker</span>
+                     </div>
+                  </div>
+                  <a class="bg-[#FF7518] text-white px-4 py-2 rounded hover:bg-orange-500 ml-4 absolute bottom-2 right-2" href="#">
+                  Register
+                  </a>
+               </div>
+            </div>
+         </div>
+      </div>
+      <br><br><br>
+      <!-- Featured Section -->
+      
+    <div class="bg-white">
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-2xl featured-font font-bold mb-4">Featured</h1>
+        <div class="flex space-x-4 overflow-x-auto flex-nowrap pb-2">
+           
+            <div class="w-40 h-24 bg-green-500 rounded-lg relative">
+                <img alt="Soccer ball icon" class="absolute inset-0 w-full h-full object-cover rounded-lg" src="../static/images/Sport_InEvidenza.svg"/>
+                <p class="absolute bottom-2 left-2 text-white text-xs font-bold">Sport</p>
+            </div>
+            <div class="w-40 h-24 bg-green-500 rounded-lg relative">
+                <img alt="Slot machine icon" class="absolute inset-0 w-full h-full object-cover rounded-lg" src="../static/images/Slot_InEvidenza1.svg"/>
+                <p class="absolute bottom-2 left-2 text-white text-xs font-bold">Slot</p>
+            </div>
+            <div class="w-40 h-24 bg-green-500 rounded-lg relative">
+                <img alt="Lottery icon" class="absolute inset-0 w-full h-full object-cover rounded-lg" src="../static/images/Lotterie_InEvidenza.svg"/>
+                <p class="absolute bottom-2 left-2 text-white text-xs font-bold">Lotteries</p>
+            </div>
+            <div class="w-40 h-24 bg-green-500 rounded-lg relative">
+                <img alt="Bonus wheel icon" class="absolute inset-0 w-full h-full object-cover rounded-lg" src="../static/images/5.jpeg"/>
+            </div>
+            <div class="w-40 h-24 bg-green-500 rounded-lg relative">
+                <img alt="Latest extractions icon" class="absolute inset-0 w-full h-full object-cover rounded-lg" src="../static/images/UltimeEstrazioni_InEvidenza.svg"/>
+                <p class="absolute bottom-2 left-2 text-white text-xs font-bold">Latest extractions</p>
+            </div>
+            <div class="w-40 h-24 bg-green-500 rounded-lg relative">
+                <img alt="Poker chips icon" class="absolute inset-0 w-full h-full object-cover rounded-lg" src="../static/images/Poker_InEvidenza.svg"/>
+                <p class="absolute bottom-2 left-2 text-white text-xs font-bold">Poker</p>
+            </div>
+            <div class="w-40 h-24 bg-blue-500 rounded-lg relative">
+                <img alt="SisalFunClub 2025 icon" class="absolute inset-0 w-full h-full object-cover rounded-lg" src="../static/images/hh.jpeg"/>
+                <p class="absolute bottom-2 left-2 text-white text-xs font-bold">SisalFunClub 2025</p>
+            </div>
+            <div class="w-40 h-24 bg-gray-700 rounded-lg relative">
+                <img alt="Point of sale registration icon" class="absolute inset-0 w-full h-full object-cover rounded-lg" src="../static/images/RegistrazionePuntoVendita_InEvidenza.svg"/>
+                <p class="absolute bottom-2 left-2 text-white text-xs font-bold">Point of sale registration</p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+      <!-- Games of the Moment -->
+      <div class="bg-white">
+         <div class="container mx-auto px-4 py-8">
+            <h1 class="featured-font font-bold mb-4">Games of the moment</h1>
+            <div class="flex flex-wrap gap-4">
+               <div class="w-40 h-56 bg-orange-500 rounded-lg p-4 text-white relative flex flex-col">
+                <div class="flex-1 flex justify-center items-center">
+                  <img alt="Lotto game logo" class="mx-auto max-w-full h-auto"  src="../static/images/Lotto_lotterywall.svg"/>
+                </div>
+                  <div class="mt-auto">
+                     <h2 class="text-base font-bold">Lotto</h2>
+                     <p class="text-sm">Lotteries</p>
+                  </div>
+                  <i class="fas fa-info-circle absolute bottom-4 right-4"></i>
+               </div>
+               <div class="w-40 h-56 bg-cover bg-center rounded-lg p-4 text-white relative flex flex-col" style="background-image: url('../static/images/s.jpeg');">
+                  <div class="flex justify-between items-center">
+                     <span class="bg-blue-500 text-xs px-2 py-1 rounded-full">Races</span>
+                     <i class="fas fa-heart"></i>
+                  </div>
+                  <div class="mt-auto">
+                     <h2 class="text-base font-bold">Bonanza Farm Rush Express</h2>
+                  </div>
+                  <i class="fas fa-info-circle absolute bottom-4 right-4"></i>
+               </div>
+               <div class="w-40 h-56 bg-[#44A038] rounded-lg p-4 text-white relative flex flex-col">
+                <div class="flex-1 flex justify-center items-center">
+                  <img alt="SuperEnalotto game logo" class="mb-2" src="../static/images/SE_lotterywall.svg"/>
+                  </div>
+                  <div class="mt-auto ">
+                     <h2 class="text-base font-bold">SuperEnalotto</h2>
+                     <p class="text-sm">Lotteries</p>
+                  </div>
+                  <i class="fas fa-info-circle absolute bottom-4 right-4"></i>
+               </div>
+               <div class="w-40 h-56 bg-cover bg-center rounded-lg p-4 text-white relative flex flex-col" style="background-image: url('../static/images/s.jpeg');">
+                  <div class="flex justify-between items-center">
+                     <span class="bg-[#44A038] text-xs px-2 py-1 rounded">From 1€ to 10€</span>
+                     <i class="fas fa-heart"></i>
+                  </div>
+                  <div class="mt-auto">
+                     <h2 class="text-sm font-bold">Crazy Prize Broom</h2>
+                     <p class="text-sm">Card Games</p>
+                  </div>
+                  <i class="fas fa-info-circle absolute bottom-4 right-4"></i>
+               </div>
+               <div class="w-40 h-56 bg-cover bg-center rounded-lg p-4 text-white relative flex flex-col" style="background-image: url('../static/images/x.jpeg');">
+                  <div class="mt-auto">
+                     <h2 class="text-base font-bold">Sunday Million</h2>
+                     <p class="text-sm">Poker</p>
+                  </div>
+                  <i class="fas fa-info-circle absolute bottom-4 right-4"></i>
+               </div>
+               <div class="w-40 h-56 bg-[#004B91] rounded-lg p-4 text-white relative flex flex-col">
+                <div class="flex-1 flex justify-center items-center">
+                  <img alt="10eLotto game logo" class="mx-auto max-w-full h-auto" src="../static/images/10eLotto_lotterywall.svg">
+               </div>
+                  <div class="mt-auto">
+                     <h2 class="text-base font-bold">10eLotto</h2>
+                     <p class="text-sm">Lotteries</p>
+                  </div>
+                  <i class="fas fa-info-circle absolute bottom-4 right-4"></i>
+               </div>
+               <div class="w-40 h-56 bg-cover bg-center rounded-lg p-4 text-white relative flex flex-col" style="background-image: url('../static/images/guar.jpeg');">
+                  <div class="flex justify-between items-center">
+                     <span class="bg-[#004B91] text-xs px-2 py-1 rounded">Exclusive</span>
+                     <i class="fas fa-heart"></i>
+                  </div>
+                  <div class="mt-auto">
+                     <h2 class="text-sm font-bold">Guardians Of Luxor 3</h2>
+                     <p class="text-sm">Slot</p>
+                  </div>
+                  <i class="fas fa-info-circle absolute bottom-4 right-4"></i>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- Today's Bets -->
+      <div class="bg-white">
+         <div class="container mx-auto p-4">
+            <h1 class="featured-font font-bold mb-4">Today's bets</h1>
+            <div class="flex space-x-4 overflow-x-auto">
+               <div class="bg-white border rounded-2xl shadow-md w-80 flex-shrink-0">
+                  <div class="bg-[#00653B] text-white p-2 flex justify-between items-center rounded-t-2xl">
+                     <div>
+                        <div class="flex items-center space-x-1">
+                           <span class="block w-2 h-2 bg-white rounded-full"></span>
+                           <span>Uruguay</span>
+                        </div>
+                        <div class="flex items-center space-x-1">
+                           <span class="block w-2 h-2 bg-white rounded-full"></span>
+                           <span>Argentina</span>
+                        </div>
+                     </div>
+                     <div class="text-sm">22/03<br>01:30</div>
+                  </div>
+                  <div class="p-2">
+                     <div class="text-sm text-gray-500">INT FIFA Qual.</div>
+                     <div class="text-xs text-gray-400">Fifa Qualifiers</div>
+                     <div class="mt-2 text-sm font-bold flex justify-between items-center">
+                        <span>Nunez marker Duo?</span>
+                        <div class="border rounded p-2 text-center w-16">3.25</div>
+                     </div>
+                  </div>
+               </div>
+               <div class="bg-white border rounded-2xl shadow-md w-80 flex-shrink-0">
+                  <div class="bg-[#00653B] text-white p-2 flex justify-between items-center rounded-t-2xl">
+                     <div>GP CHINA - RACE</div>
+                     <div class="text-sm">23/03<br>09:00</div>
+                  </div>
+                  <div class="p-2">
+                     <div class="text-sm text-gray-500">INT Formula 1 World Championship</div>
+                     <div class="text-xs text-gray-400">China GP</div>
+                     <div class="mt-2 text-sm font-bold flex justify-between items-center">
+                        <span>Both Ferrari drivers in the top 3?</span>
+                        <div class="border rounded p-2 text-center w-16">9.00</div>
+                     </div>
+                  </div>
+               </div>
+               <div class="bg-white border rounded-2xl shadow-md w-80 flex-shrink-0">
+                  <div class="bg-[#00653B] text-white p-2 flex justify-between items-center rounded-t-2xl">
+                     <div>MILAN SANREMO</div>
+                     <div class="text-sm">22/03<br>12:00</div>
+                  </div>
+                  <div class="p-2">
+                     <div class="text-sm text-gray-500">Milan - Sanremo</div>
+                     <div class="text-xs text-gray-400">Milan-Sanremo</div>
+                     <div class="mt-2 text-sm font-bold flex justify-between items-center">
+                        <span>Pogacar to win Milan-Sanremo?</span>
+                        <div class="border rounded p-2 text-center w-16">3.00</div>
+                     </div>
+                  </div>
+               </div>
+               <div class="bg-white border rounded-2xl shadow-md w-80 flex-shrink-0">
+                  <div class="bg-gradient-to-r from-green-400 to-blue-500 text-white p-2 flex justify-between items-center rounded-t-2xl">
+                     <div>
+                        <div>Guinea</div>
+                        <div>Somalia</div>
+                     </div>
+                     <div class="text-sm">
+                        <div>90'</div>
+                        <div>+8'0"</div>
+                     </div>
+                  </div>
+                  <div class="p-2">
+                     <div class="text-sm text-gray-500">INT FIFA Qual.</div>
+                     <div class="text-xs text-gray-400">FINAL RESULT 1X2</div>
+                     <div class="mt-2 flex justify-between items-center">
+                        <div class="border rounded p-2 text-center w-12">1<br>1.45</div>
+                        <div class="border rounded p-2 text-center w-12">X<br>2.50</div>
+                        <div class="border rounded p-2 text-center w-15">2<br>10.00pm</div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="mt-4 text-right">
+               <a href="#" class="text-green-500 font-bold">See all</a>
+            </div>
+         </div>
+      </div>
+      <!-- Footer Sections -->
+      <div class="relative bg-gray-800 py-8">
+         <div class="absolute inset-0">
+            <img alt="Background with curved lines" class="w-full h-full object-cover opacity-50" src="../static/images/support.png"/>
+         </div>
+         <div class="relative z-10 flex justify-between items-center mx-32">
+            <div>
+               <h2 class="text-white text-2xl font-semibold">Can we help you?</h2>
+               <p class="text-gray-300">Visit the Sisal help center to receive the assistance you need.</p>
+            </div>
+            <button class="bg-lime-500 text-gray-800 font-semibold py-2 px-4 rounded">Get Support</button>
+         </div>
+      </div>
+      <footer class="bg-gray-900 text-gray-300 py-10">
+         <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-8">
+               <div>
+                  <h3 class="font-bold mb-4">Agency</h3>
+                  <ul>
+                     <li><a class="hover:underline" href="#">Sisal Group</a></li>
+                     <li><a class="hover:underline" href="#">Sustainability</a></li>
+                     <li><a class="hover:underline" href="#">Work with us</a></li>
+                     <li><a class="hover:underline" href="#">Points of sale</a></li>
+                     <li><a class="hover:underline" href="#">Online Partner Program</a></li>
+                  </ul>
+                  <h3 class="font-bold mt-4 mb-4">Responsible Together</h3>
+                  <ul>
+                     <li><a class="hover:underline" href="#">Responsible Gaming</a></li>
+                     <li><a class="hover:underline" href="#">Instruments</a></li>
+                     <li><a class="hover:underline" href="#">Support</a></li>
+                     <li><a class="hover:underline" href="#">Our idea</a></li>
+                  </ul>
+               </div>
+               <div>
+                  <h3 class="font-bold mb-4">Regulations and policies</h3>
+                  <ul>
+                     <li><a class="hover:underline" href="#">Concession</a></li>
+                     <li><a class="hover:underline" href="#">Game contract</a></li>
+                     <li><a class="hover:underline" href="#">Terms and Conditions</a></li>
+                     <li><a class="hover:underline" href="#">Service Charter</a></li>
+                     <li><a class="hover:underline" href="#">Odds of winning</a></li>
+                     <li><a class="hover:underline" href="#">Privacy and Data Ethics</a></li>
+                     <li><a class="hover:underline" href="#">Our Privacy Commitment</a></li>
+                     <li><a class="hover:underline" href="#">Cookie policy</a></li>
+                     <li><a class="hover:underline" href="#">Responsible Disclosure Policy</a></li>
+                  </ul>
+                  <h3 class="font-bold mt-4 mb-4">Assistance</h3>
+                  <ul>
+                     <li><a class="hover:underline" href="#">FAQ</a></li>
+                     <li><a class="hover:underline" href="#">Contacts</a></li>
+                  </ul>
+               </div>
+               <div>
+                  <h3 class="font-bold mb-4">Offer</h3>
+                  <ul>
+                     <li><a class="hover:underline" href="#">Betting</a></li>
+                     <li><a class="hover:underline" href="#">Poker</a></li>
+                     <li><a class="hover:underline" href="#">Card Games</a></li>
+                     <li><a class="hover:underline" href="#">Casino</a></li>
+                     <li><a class="hover:underline" href="#">Live Casino</a></li>
+                     <li><a class="hover:underline" href="#">Slot</a></li>
+                     <li><a class="hover:underline" href="#">Quick Games</a></li>
+                     <li><a class="hover:underline" href="#">Lotteries</a></li>
+                     <li><a class="hover:underline" href="#">Bingo</a></li>
+                     <li><a class="hover:underline" href="#">App</a></li>
+                     <li><a class="hover:underline" href="#">Loyalty program</a></li>
+                     <li><a class="hover:underline" href="#">Sisal News</a></li>
+                     <li><a class="hover:underline" href="#">Check winnings</a></li>
+                     <li><a class="hover:underline" href="#">Betting Sitemap</a></li>
+                     <li><a class="hover:underline" href="#">Sitemap</a></li>
+                     <li><a class="hover:underline" href="#">Slot Games Sitemap</a></li>
+                  </ul>
+               </div>
+               <div>
+                  <h3 class="font-bold mb-4">Awards</h3>
+                  <div class="flex flex-col space-y-4">
+                     <div class="flex items-center space-x-2">
+                        <img alt="Award icon" src="../static/images/award.jpeg" style="height: 50px; object-position: cover;"/>
+                        <div>
+                           <p>2024</p>
+                           <p>Operator of the Year</p>
+                        </div>
+                     </div>
+                     <div class="flex items-center space-x-2">
+                        <img alt="Award icon" src="../static/images/award.jpeg" style="height: 50px; object-position: cover;"/>
+                        <div>
+                           <p>2024</p>
+                           <p>Sports Betting Operator</p>
+                        </div>
+                     </div>
+                     <div class="flex items-center space-x-2">
+                        <img alt="Award icon" src="../static/images/award.jpeg" style="height: 50px; object-position: cover;" />
+                        <div>
+                           <p>2024</p>
+                           <p>Safe gaming operator</p>
+                        </div>
+                     </div>
+                     <div class="flex items-center space-x-2">
+                        <img alt="Award icon" src="../static/images/award.jpeg" style="height: 50px; object-position: cover;"/>
+                        <div>
+                           <p>2024</p>
+                           <p>Diversity & Inclusion Model</p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </footer>
+      <footer class="bg-green-800 text-white text-center py-4">
+         <div class="flex flex-col items-center space-y-2">
+            <div class="flex items-center space-x-4">
+               <img alt="ADM logo" class="h-8" src="../static/images/h1.svg"/>
+               <img alt="Another logo" class="h-8" src="../static/images/h2.svg">
+               <img alt="Responsible Together logo" class="h-8" src="../static/images/h3.svg"/>
+               <div class="flex items-center space-x-2">
+                  <img alt="18+ logo" class="h-8" src="../static/images/h4.svg"/>
+                  <div class="text-xs text-left">
+                     <div>THE GAME IS PROHIBITED TO MINORS</div>
+                     <div>AND MAY CAUSE PATHOLOGICAL ADDICTION</div>
+                  </div>
+               </div>
+            </div>
+            <div class="text-xs">
+               Sisal Italia SpA - Via Ugo Bassi 6, 20159 Milan - VAT number 02433760135 - Conc. GAD: 15155
+            </div>
+         </div>
+      </footer>
+
+<!-- Chatbot User Interface -->
+<div class="chat-wrapper">
+   <div class="chat-box" id="chatBox">Have Enquiries? You can ask away!!</div>
+</div>
+
+<!-- Chat Icon -->
+<div class="chat-icon" onclick="toggleChat()">
+   <img src="https://png.pngtree.com/png-clipart/20230815/original/pngtree-chat-bot-icon-program-bot-illustration-vector-picture-image_10800531.png" alt="Chat">
+</div>
+
+<!-- Chat Overlay -->
+<div class="overlay" id="overlay" onclick="toggleChat()"></div>
+
+<!-- Chat Container -->
+<div class="chat-container" id="chatContainer">
+   <div class="chat-header">
+       Sisal Enquiry Assistant
+   </div>
+   <div class="messages" id="messages"></div>
+   <div class="input-box">
+       <input type="text" id="userInput" placeholder="Type your message here..." onkeypress="handleKeyPress(event)">
+       <button onclick="sendMessage()">Send</button>
+   </div>
+</div>
+
+<!-- Modal for Additional Fields -->
+<div id="enquiryModal" class="modal">
+   <div class="modal-content">
+       <span class="close" onclick="closeModal()">&times;</span>
+       <h3>Please Provide Your Details</h3>
+       <input type="text" id="nameInput" placeholder="Name">
+       <input type="text" id="surnameInput" placeholder="Surname">
+       <input type="email" id="emailInput" placeholder="Email">
+       <textarea id="enquiryInput" placeholder="Fill in your specific Enquiry"></textarea>
+       <button onclick="submitEnquiry()">Submit Enquiry</button>
+   </div>
+</div>
+<div id="successMessage" class="success-message">
+   <span>✔</span> <!-- Tick symbol -->
+   <p>Enquiry submitted successfully</p>
+</div>
+<div id="overlay" class="overlay"></div> <!-- Overlay -->
+<div id="closeOrContinuePopup" class="close-or-continue-popup">
+   <p>What would you like to do next?</p>
+   <button id="closeChatbot">Close Chatbot</button>
+   <button id="continueEnquiry">Continue with Enquiry</button>
+</div>
+<script src="static/js/script.js"></script>
+
+   </body>
+</html>
