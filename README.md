@@ -44,13 +44,17 @@ The chatbot is designed to enhance user engagement and provide instant assistanc
 
 **1.Clone The Repository.**
 ```python
-git clone https://pta-git2.csir.co.za/FMakharamedzha/sisal-virtual-assistant.git
+git clone https://github.com/CodeboyTF/Internal-Virtual-Assistant
 cd sisal-chatbot
 ```
 
 **2.Install Dependencies.**
 ```python
 pip install -r requirements.txt
+```
+```postgreSQL
+enquiries_db
+sisal33
 ```
 
 **3.Download required NLTK datasets:**
